@@ -1,0 +1,9 @@
+setup.cfg
+setup.py
+VKapi.egg-info/PKG-INFO
+VKapi.egg-info/SOURCES.txt
+VKapi.egg-info/dependency_links.txt
+VKapi.egg-info/entry_points.txt
+VKapi.egg-info/not-zip-safe
+VKapi.egg-info/top_level.txt
+vkapi/__init__.py

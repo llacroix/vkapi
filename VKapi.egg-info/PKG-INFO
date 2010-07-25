@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: VKapi
+Version: 0.0dev
+Summary: VKontakte api in python for server side script or computer application
+Home-page: http://delicieuxgateau.ca
+Author: Loïc Faure-Lacroix
+Author-email: lamerstar@gmail.com
+License: GPL
+Description: UNKNOWN
+Keywords: vkontakte api
+Platform: UNKNOWN
