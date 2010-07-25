@@ -1,0 +1,96 @@
+Introduction
+============
+
+This package come with some util and the vkontakte api.
+If you simply want to use the vkontakte api. You should 
+only have to import it like this:
+
+    from vkapi.api import VKapi
+
+
+Package contents
+================
+
+Small listing of directory and their purpose. If you 
+expect to dig in the code and submit some patch to 
+improve support for the api.
+
+template/ : contains mako templates for api generation
+util/: contains some utility needed for api generation
+
+
+Dependencies
+=============
+
+* urllib
+* urllib2
+* simplejson
+* pastescript
+* hashlib
+
+Most of the dependencies are python default.
+
+Starting development
+====================
+
+In order to get all the requirements, it is highly 
+recommended to run a python application within a virtual
+environnement. To make sure all dependencies are there. 
+Run the following command at the root of the package.
+
+    python setup.py develop
+
+
+Installing
+==========
+
+There is no installation script at the moment. I have no idea 
+how it will be handled by pastescript. Good chance are that it 
+will work but don't expect it to update the vkapi by itself. 
+You'll either have to pull the project from git or update the 
+package by yourself. If you use the utility script to update the 
+api, it is at your own risk. 
+
+
+Notes
+=====
+
+I will explain some design choices. I started the project on 24th 
+of july 2010. I made a version of the VK api a couple months ago. 
+Without having access to the api, I had to manually add method 
+signatures in a dict that described each methods. 
+
+I inspired myself from the python facebook api. It generated classes
+and defs at runtime. I made it and it worked nicely. Unfortunately,
+having runtime generation of a whole api bring some problems. It is 
+hard to debug and inspecting code that is created at runtime is not 
+really easy. 
+
+I then decided to stop working on it since it wasn't exactly "that"
+easy to maintaint. The code was fairly small but that wasn't important.
+
+Two days ago, I found out that some wiki pages of the VK api are 
+available offline. I then didn't have to mess with cookie 
+authentication.  I then decided to write a simple parser that will 
+download all the wiki pages that defined api methods.
+
+All the methods are then saved in a dict for later use in a template 
+file.
+
+I decided to create this utility in order to output the api into actual 
+code.  The good thing is that since I build the api with a template, 
+it should be possible to create templates for multiple languages. That 
+should allow me to output the VKapi as python, plain json, javascript, 
+java, c++ or any languages that will have its own languages. 
+
+Since I use a template, to generate a working api file to any supported 
+language. People could submit patches directly to the generated file. 
+That way, I can or someone else will be able to fix the template. 
+
+To make things easy, I'd be happy to add some support for pastescript
+like this:
+
+    paster buildapi [programming language or all]
+    paster package [programming language or all]
+
+
