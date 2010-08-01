@@ -2,9 +2,9 @@ from mako.template import Template
 from mako.runtime import Context
 from StringIO import StringIO
 
-
 def build_api(methods):
-    mytemplate = Template(filename='api.mako')
+    from loadApi import config
+    mytemplate = Template(filename=os.path.join(config.get('main', 'template'), 'api.mako'))
     buf = StringIO()
     ctx = Context(buf, methods=methods)
     mytemplate.render_context(ctx)
@@ -74,4 +74,3 @@ if __name__ == '__main__':
     fout.write(template.encode('utf-8'))
     fout.close()
     print template
-
