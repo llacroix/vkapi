@@ -4,7 +4,10 @@ from StringIO import StringIO
 
 def build_api(methods):
     from loadApi import config
-    mytemplate = Template(filename=os.path.join(config.get('main', 'template'), 'api.mako'))
+    template_path = config.get('main', 'template')
+    programming_language = config.get('default', 'languages')
+    tplt = os.path.join(template_path, programming_language, 'api.mako')
+    mytemplate = Template(filename=os.path.join(tplt))
     buf = StringIO()
     ctx = Context(buf, methods=methods)
     mytemplate.render_context(ctx)
