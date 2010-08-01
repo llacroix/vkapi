@@ -94,3 +94,10 @@ like this:
     paster package [programming language or all]
 
 
+ISSUES
+======
+
+I am unsure of the encoding used by vkontakte...html says cp1251...
+firefox says utf-8, decode both cp1251 and utf-8 but sometimes crash
+with an invalid char with cp1251... Seems to solve the issue if I use 
+utf-8 even if the html says a different encoding. 
